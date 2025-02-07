@@ -71,7 +71,8 @@ int main() {
     if (pib1 > pib2)
     { printf("O JOGADOR 1 VENCEU!\n");
         /* code */
-    } else printf("O JOGADOR 2 VENCEU!\n");
-    
+    } else { printf("O JOGADOR 2 VENCEU!\n");
+    }
+
     return 0;
 }
