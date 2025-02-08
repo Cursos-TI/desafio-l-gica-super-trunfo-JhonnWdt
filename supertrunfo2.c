@@ -3,16 +3,21 @@
 
 int main() {
     int populacao1, populacao2, turismo1, turismo2;
-    float pib1, pib2, area1, area2, capita1, capita2, densidade1, densidade2;
+    float pib1, pib2, area1, area2, capita1, capita2, densidade1, densidade2; // aqui são definidas as variaveis.
     char nome1[50], nome2[50];
 
-    printf(" *** Super Trunfo Países ***\n");
+    printf(" *** Super Trunfo Países ***\n");  
 
-    printf("Nome da Cidade: \n");
+    printf("\nJogador 1, insira as informações da sua carta: \n");
+
+    //aqui tive ajuda do chat gpt, pois usando scanf, ao digitar o nome de uma cidade que fosse composto (Ex: São Paulo), o programa zerava automaticamente todas os dados seguintes.
+    printf("\nNome da Cidade: \n");
     fgets(nome1, 50, stdin);
     nome1[strcspn(nome1, "\n")] = 0;
-    
-    printf("População: \n");
+
+    //printf define qual mensagem sera exibida para o usuario, nesse caso indicando qual informação esta sendo solicitada.
+    // enquanto o scanf define qual tipo de dado esta sendo armazenado, no caso de %d, um inteiro e %f sendo float.
+    printf("População: \n");    
     scanf("%d", &populacao1);
 
     printf("PIB: \n");
@@ -24,12 +29,14 @@ int main() {
     printf("Área da cidade: \n");
     scanf("%f", &area1);
 
+    // Aqui é feito o calcula que ira definir a renda per capita e densidade demográfica, sendo aplicada a conversão explicita, convertendo uma variavel int para float.
     capita1 = (float)pib1 / populacao1;
     densidade1 = (float)populacao1 / area1;
+    getchar()
 
-    getchar();
+    printf("\nJogador 2, insira as informações da sua carta: \n");
 
-    printf("Nome da Cidade: \n");
+    printf("\nNome da Cidade: \n");
     fgets(nome2, 50, stdin);
     nome2[strcspn(nome2, "\n")] = 0;
 
@@ -48,8 +55,9 @@ int main() {
     capita2 = (float)pib2 / populacao2;
     densidade2 = (float)populacao2 / area2;
 
+    // Aqui, através da função printf, foi definido como a informação final sera exibida para o usuario.
     printf("\n=== Carta do Jogador 1 ===\n");
-    printf("Nome: %s \n", nome1);
+    printf("\nCidade: %s \n", nome1);
     printf("População: %d \n", populacao1);
     printf("PIB: %.2f \n", pib1);
     printf("Número de Pontos Turísticos: %d \n", turismo1);
@@ -58,7 +66,7 @@ int main() {
     printf("PIB per Capita: %.2f \n", capita1);
 
     printf("\n=== Carta do Jogador 2 ===\n");
-    printf("Nome: %s \n", nome2);
+    printf("\nCidade: %s \n", nome2);
     printf("População: %d \n", populacao2);
     printf("PIB: %.2f \n", pib2);
     printf("Número de Pontos Turísticos: %d \n", turismo2);
@@ -68,10 +76,11 @@ int main() {
 
     printf ("\n===========================\n");
 
+    // atraves de if e else, o programa exibe a informação de qual jogador venceu o jogo.
     if (pib1 > pib2)
-    { printf("\nO JOGADOR 1 VENCEU!\n");
+    { printf("\nO jogador 1 venceu o jogo, pois sua cidade tem um PIB maior!\n");
         /* code */
-    } else { printf("\nO JOGADOR 2 VENCEU!\n");
+    } else { printf("\nO Jogador 2 venceu o jogo, pois sua cidade tem um PIB maior! !\n");
     }
 
     return 0;
